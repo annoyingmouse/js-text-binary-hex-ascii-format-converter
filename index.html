@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+          rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css"
+          rel="stylesheet" />
+    <link href="css/style.css"
+          rel="stylesheet" />
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body fixed-top">
+        <div class="container-fluid">
+          <!-- Navbar brand -->
+          <a class="navbar-brand nav-link"
+             href="#">
+            <strong>Format Converter</strong>
+          </a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container">
+        <form id="data-translator">
+          <div class="row text-center">
+            <div class="form-inline mb-2">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input"
+                       type="radio"
+                       name="inlineRadioOptions"
+                       id="text"
+                       value="text"
+                       checked />
+                <label class="form-check-label"
+                       for="text">
+                  Text
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input"
+                       type="radio"
+                       name="inlineRadioOptions"
+                       id="binary"
+                       value="binary" />
+                <label class="form-check-label"
+                       for="binary">
+                  Binary
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input"
+                       type="radio"
+                       name="inlineRadioOptions"
+                       id="hex"
+                       value="hex" />
+                <label class="form-check-label"
+                       for="hex">
+                  Hexadecimal
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input"
+                       type="radio"
+                       name="inlineRadioOptions"
+                       id="ascii"
+                       value="ascii" />
+                <label class="form-check-label"
+                       for="ascii">
+                  Ascii
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-outline mb-5" data-mdb-input-init>
+              <textarea class="form-control"
+                        id="input"
+                        rows="6"
+                        name="input"
+                        required>Cheese</textarea>
+              <label class="form-label"
+                     for="input">Input</label>
+            </div>
+          </div>
+          <div class="row justify-content-center mb-5">
+            <div class="col-4 text-center">
+              <button type="submit"
+                      class="btn btn-primary">
+                Convert
+              </button>
+            </div>
+            <div class="col-4 text-center">
+              <button type="reset"
+                      class="btn btn-secondary">
+                Reset
+              </button>
+            </div>
+          </div>
+          <div class="row text-center">
+            <div class="form-inline mb-2">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input output"
+                       type="checkbox"
+                       name="option[]"
+                       id="text-output"
+                       value="text" />
+                <label class="form-check-label"
+                       for="text-output">
+                  Text
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input output"
+                       type="checkbox"
+                       name="binary"
+                       id="binary-output"
+                       value="binary" />
+                <label class="form-check-label"
+                       for="binary-output">
+                  Binary
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input output"
+                       type="checkbox"
+                       name="hex"
+                       id="hex-output"
+                       value="hex" />
+                <label class="form-check-label"
+                       for="hex-output">
+                  Hexadecimal
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input output"
+                       type="checkbox"
+                       name="ascii"
+                       id="ascii-output"
+                       value="ascii" />
+                <label class="form-check-label"
+                       for="ascii-output">
+                  Ascii
+                </label>
+              </div>
+              <span class="me-3">|</span>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input"
+                       type="checkbox"
+                       name="all"
+                       id="all-output"
+                       value="all" />
+                <label class="form-check-label"
+                       for="all-output">
+                  All
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-outline mb-5" data-mdb-input-init>
+              <textarea class="form-control"
+                        id="output"
+                        rows="6"
+                        readonly></textarea>
+              <label class="form-label"
+                     for="output">Output</label>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </main>
+    <!-- MDB -->
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+
+</html>
