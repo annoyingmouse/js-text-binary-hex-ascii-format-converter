@@ -1,47 +1,91 @@
-import {binaryToText, hexToText, asciiToText, textToBinary, textToHex, textToAscii, formatOutput} from '../../js/functions.js'
+import {
+  binaryToText,
+  hexToText,
+  asciiToText,
+  textToBinary,
+  textToHex,
+  textToAscii,
+  getTransitoryValue,
+  formatOutput,
+  getOutPutText
+} from '../../js/functions.js'
+
 const chai = window.chai
 const expect = chai.expect
 
 // Text to other data types
-describe("TextToBinary", () => {
+describe("textToBinary", () => {
   it("Text translated to Binary", () => {
     expect(textToBinary("Cheese")).to.deep.equal("01000011 01101000 01100101 01100101 01110011 01100101")
   })
 })
 
-describe("TextToHex", () => {
+describe("textToHex", () => {
   it("Text translated to Hex", () => {
     expect(textToHex("Cheese")).to.deep.equal("43 68 65 65 73 65")
   })
 })
 
-describe("TextToAscii", () => {
+describe("textToAscii", () => {
   it("Text translated to Ascii", () => {
     expect(textToAscii("Cheese")).to.deep.equal("67 104 101 101 115 101")
   })
 })
 
-describe("BinaryToText", () => {
+describe("binaryToText", () => {
   it("Binary translated to Text", () => {
     expect(binaryToText("01000011 01101000 01100101 01100101 01110011 01100101")).to.deep.equal("Cheese")
   })
 })
 
-describe("HexToText", () => {
+describe("hexToText", () => {
   it("Hex translated to Text", () => {
     expect(hexToText("43 68 65 65 73 65")).to.deep.equal("Cheese")
   })
 })
 
-describe("AsciiToText", () => {
+describe("asciiToText", () => {
   it("Ascii translated to Text", () => {
     expect(asciiToText("67 104 101 101 115 101")).to.deep.equal("Cheese")
   })
 })
 
+describe("getTransitoryValue", () => {
+  it("Text to Text", () => {
+    expect(getTransitoryValue({"inlineRadioOptions":"text","input":"Cheese"})).to.deep.equal("Cheese")
+  }),
+  it("Binary to Text", () => {
+    expect(getTransitoryValue({"inlineRadioOptions":"binary","input":"01000011 01101000 01100101 01100101 01110011 01100101"})).to.deep.equal("Cheese")
+  }),
+  it("Hex to Text", () => {
+    expect(getTransitoryValue({"inlineRadioOptions":"hex","input":"43 68 65 65 73 65"})).to.deep.equal("Cheese")
+  }),
+  it("Ascii to Text", () => {
+    expect(getTransitoryValue({"inlineRadioOptions":"ascii","input":"67 104 101 101 115 101"})).to.deep.equal("Cheese")
+  })
+})
+
 describe("formatOutput", () => {
-  it("Formats output as appropriate", () => {
-    expect(formatOutput("Ascii", asciiToText("67 104 101 101 115 101"))).to.deep.equal("Ascii:\r\nCheese\r\n")
+  it("Formats Text", () => {
+    expect(formatOutput("Text", "Cheese")).to.deep.equal("Text:\r\nCheese\r\n")
+  })
+})
+
+describe("getOutPutText", () => {
+  it("Formats Text as Binary", () => {
+    expect(getOutPutText({"inlineRadioOptions":"text","input":"Cheese","output-type":["binary"]})).to.deep.equal("Binary:\r\n01000011 01101000 01100101 01100101 01110011 01100101\r\n")
+  }),
+  it("Formats Binary as Text", () => {
+    expect(getOutPutText({"inlineRadioOptions":"binary","input":"01000011 01101000 01100101 01100101 01110011 01100101","output-type":["text"]})).to.deep.equal("Text:\r\nCheese\r\n")
+  })
+  it("Formats Binary as Hexadecimal", () => {
+    expect(getOutPutText({"inlineRadioOptions":"binary","input":"01000011 01101000 01100101 01100101 01110011 01100101","output-type":["hex"]})).to.deep.equal("Hexadecimal:\r\n43 68 65 65 73 65\r\n")
+  }),
+  it("Formats Hexadecimal as Ascii", () => {
+    expect(getOutPutText({"inlineRadioOptions":"binary","input":"01000011 01101000 01100101 01100101 01110011 01100101","output-type":["ascii"]})).to.deep.equal("Ascii:\r\n67 104 101 101 115 101\r\n")
+  }),
+  it("Formats Ascii as Text", () => {
+    expect(getOutPutText({"inlineRadioOptions":"ascii","input":"67 104 101 101 115 101","output-type":["text"]})).to.deep.equal("Text:\r\nCheese\r\n")
   })
 })
 
