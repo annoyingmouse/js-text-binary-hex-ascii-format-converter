@@ -7,16 +7,17 @@
     <meta name="author" content="annoyingmouse">
     <meta name="description" content="Tests for a utility that converts text between different formats (binary, hexadecimal and Ascii)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          media="screen"
           rel="stylesheet" />
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+          media="screen"
           rel="stylesheet" />
-    <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css"
+          media="screen"
           rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/gh/mochajs/mocha@2.2.5/mocha.css"
+          media="screen"
           rel="stylesheet" />
   </head>
 
@@ -56,11 +57,14 @@
         <div id="mocha"></div>
       </div>
     </main>
-
-    <script src="https://cdn.rawgit.com/Automattic/expect.js/0.3.1/index.js"></script>
-    <script src="https://cdn.rawgit.com/chaijs/chai/3.5.0/chai.js"></script>
-    <script src="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.js"></script>
-    <script src="../js/functions.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.rawgit.com/Automattic/expect.js/0.3.1/index.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.rawgit.com/chaijs/chai/3.5.0/chai.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.js"></script>
+    <script type="text/javascript"
+            src="../js/functions.js"></script>
     <script>
       const mocha = window.mocha;
       mocha.setup('bdd');
@@ -68,5 +72,4 @@
     <script type="module"
             src="./js/tests.js"></script>
   </body>
-
 </html>
