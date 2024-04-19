@@ -6,6 +6,7 @@ import { getOutPutText } from './functions.js'
   const output = document.querySelector('#output')
   const allOutput = document.querySelector('#all-output')
   const allOutputs = document.querySelectorAll('.output')
+  const copyButton = document.querySelector('#copy-button')
 
   allOutput.addEventListener('click', (e) => {
     allOutputs.forEach(output => {
@@ -52,6 +53,15 @@ import { getOutPutText } from './functions.js'
       new mdb.Input(document.querySelector('#input').parentElement).init()
     })
     allOutputs.forEach(output => output.disabled = false)
+  })
+
+  copyButton.addEventListener('click', () => {
+    copyButton.textContent = 'Copied!'
+    navigator.clipboard.writeText(output.value).then(() => {
+        setTimeout(() => {
+          copyButton.textContent = 'Copy'
+        }, 1000)
+      })
   })
 
   console.log(getOutPutText({"inlineRadioOptions":"text","input":"Cheese","output-type":["text"]}))
