@@ -19,28 +19,27 @@
           media="screen"
           rel="stylesheet" />
   </head>
-
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg bg-body fixed-top">
+      <nav class="navbar navbar-expand-lg bg-light navbar-light">
         <div class="container-fluid">
-          <a class="navbar-brand nav-link"
+          <a class="navbar-brand"
              href="/">
-            <strong>Format Converter</strong>
+            Format Converter
           </a>
           <button class="navbar-toggler"
                   type="button"
-                  data-toggle="collapse"
-                  data-target="#navbarSupportedContent"
-                  aria-controls="navbarSupportedContent"
+                  data-mdb-toggle="collapse"
+                  data-mdb-target="#navbarContent"
+                  aria-controls="navbarContent"
                   aria-expanded="false"
                   aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <i class="fas fa-bars"></i>
           </button>
           <div class="collapse navbar-collapse"
-               id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
+               id="navbarContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
                 <a class="nav-link active"
                    href="./">
                   Home
@@ -58,7 +57,7 @@
         </div>
       </nav>
     </header>
-    <main style="margin-top: 5rem;">
+    <main style="margin-top: 2rem;">
       <div class="container">
         <form id="data-translator">
           <div class="row text-center">
@@ -209,7 +208,7 @@
                  style="background-color: var(--mdb-form-control-disabled-bg);">
               <textarea class="form-control"
                         id="output"
-                        rows="6"
+                        rows="12"
                         readonly></textarea>
               <label class="form-label"
                      for="output">Output</label>
@@ -219,7 +218,6 @@
       </div>
     </main>
     <script type="text/javascript"
-            async
             src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"></script>
     <script type="module"
             src="js/script.js"></script>
