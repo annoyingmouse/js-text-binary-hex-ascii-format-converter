@@ -1,3 +1,11 @@
+import {
+  getTransitoryValue,
+  textToBinary,
+  textToHex,
+  textToAscii,
+  formatOutput
+} from './functions.js'
+
 (() => {
   const form = document.querySelector('form')
   const input = document.querySelector('#input')
@@ -23,66 +31,45 @@
     })
   })
 
-  const binaryToText = input => input.split(' ').map(char => String.fromCharCode(parseInt(char, 2))).join('')
+  form.addEventListener('submit',
+    (e) => {
+      e.preventDefault()
+      let returnString = ''
+      const formData = new FormData(form)
+      const data = Object.fromEntries(formData.entries())
+      data['output-type'] = formData.getAll('output-type')
+      const transitoryValue = getTransitoryValue(data)
 
-  const hexToText = input => input.split(' ').map(char => String.fromCharCode(parseInt(char, 16))).join('')
-
-  const asciiToText = input => input.split(' ').map(char => String.fromCharCode(parseInt(char))).join('')
-
-  const textToBinary = input => input.split('').map(char => char.charCodeAt(0).toString(2).padStart(8, '0')).join(' ').trim()
-
-  const textToHex = input => input.split('').map(char => char.charCodeAt(0).toString(16).padStart(2, '0')).join(' ').trim()
-
-  const textToAscii = input => input.split('').map(char => char.charCodeAt(0) + ' ').join('').trim()
-
-  const formatOutput = (text, value) => `${text}:\r\n${value}\r\n`
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault()
-    let transitoryValue
-    let returnString = ''
-    const formData = new FormData(form)
-    const data = Object.fromEntries(formData)
-    switch (data.inlineRadioOptions) {
-      case 'binary':
-        transitoryValue = binaryToText(data.input)
-        break
-      case 'hex':
-        transitoryValue = hexToText(data.input)
-        break
-      case 'ascii':
-        transitoryValue = asciiToText(data.input)
-        break
-      default:
-        transitoryValue = data.input
-    }
-
-    switch (true) {
-      case data.text === 'text':
+      if (data['output-type'].includes('text')) {
         returnString += formatOutput('Text', transitoryValue)
-        break
-      case data.binary === 'binary':
+      }
+      if (data['output-type'].includes('binary')) {
         returnString += formatOutput('Binary', textToBinary(transitoryValue))
-        break
-      case data.hex === 'hex':
+      }
+      if (data['output-type'].includes('hex')) {
         returnString += formatOutput('Hexadecimal', textToHex(transitoryValue))
-        break
-      case data.ascii === 'ascii':
+      }
+      if (data['output-type'].includes('ascii')) {
         returnString += formatOutput('Ascii', textToAscii(transitoryValue))
-        break
-      default:
+      }
+      if (data['output-type'].includes('all') || data['output-type'].length === 0) {
+        returnString += formatOutput('Text', transitoryValue)
+        returnString += formatOutput('Binary', textToBinary(transitoryValue))
+        returnString += formatOutput('Hexadecimal', textToHex(transitoryValue))
+        returnString += formatOutput('Ascii', textToAscii(transitoryValue))
+      }
+      if (data['output-type'].length === 0) {
         allOutput.checked = true
-        returnString += formatOutput('Text', transitoryValue)
-        returnString += formatOutput('Binary', textToBinary(transitoryValue))
-        returnString += formatOutput('Hexadecimal', textToHex(transitoryValue))
-        returnString += formatOutput('Ascii', textToAscii(transitoryValue))
-        break
-    }
-    output.value = returnString
-    setTimeout(() => {
-      new mdb.Input(document.querySelector('#output').parentElement).init()
+        allOutputs.forEach(output => {
+          output.checked = true
+          output.disabled = true
+        })
+      }
+      output.value = returnString
+      setTimeout(() => {
+        new mdb.Input(document.querySelector('#output').parentElement).init()
+      })
     })
-  })
 
   form.addEventListener('reset', () => {
     form.reset()
@@ -90,5 +77,6 @@
     setTimeout(() => {
       new mdb.Input(document.querySelector('#input').parentElement).init()
     })
+    allOutputs.forEach(output => output.disabled = false)
   })
 })()

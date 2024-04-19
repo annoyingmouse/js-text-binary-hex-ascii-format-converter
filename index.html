@@ -3,7 +3,7 @@
 
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Data-Translator</title>
     <meta name="author" content="">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -114,7 +114,7 @@
               <div class="form-check form-check-inline">
                 <input class="form-check-input output"
                        type="checkbox"
-                       name="text"
+                       name="output-type"
                        id="text-output"
                        value="text" />
                 <label class="form-check-label"
@@ -125,7 +125,7 @@
               <div class="form-check form-check-inline">
                 <input class="form-check-input output"
                        type="checkbox"
-                       name="binary"
+                       name="output-type"
                        id="binary-output"
                        value="binary" />
                 <label class="form-check-label"
@@ -136,7 +136,7 @@
               <div class="form-check form-check-inline">
                 <input class="form-check-input output"
                        type="checkbox"
-                       name="hex"
+                       name="output-type"
                        id="hex-output"
                        value="hex" />
                 <label class="form-check-label"
@@ -147,7 +147,7 @@
               <div class="form-check form-check-inline">
                 <input class="form-check-input output"
                        type="checkbox"
-                       name="ascii"
+                       name="output-type"
                        id="ascii-output"
                        value="ascii" />
                 <label class="form-check-label"
@@ -159,7 +159,7 @@
               <div class="form-check form-check-inline">
                 <input class="form-check-input"
                        type="checkbox"
-                       name="all"
+                       name="output-type"
                        id="all-output"
                        value="all" />
                 <label class="form-check-label"
@@ -186,7 +186,8 @@
     <!-- MDB -->
     <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"></script>
-    <script src="js/script.js"></script>
+    <script type="module"
+            src="js/script.js"></script>
   </body>
 
 </html>
