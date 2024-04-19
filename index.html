@@ -4,19 +4,20 @@
   <head>
     <meta charset="utf-8">
     <title>Data-Translator</title>
-    <meta name="author" content="">
-    <meta name="description" content="">
+    <meta name="author" content="annoyingmouse">
+    <meta name="description" content="A utility for converting text between different formats (binary, hexadecimal and Ascii)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          media="screen"
           rel="stylesheet" />
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+          media="screen"
           rel="stylesheet" />
     <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css"
-          rel="stylesheet" />
-    <link href="css/style.css"
+          media="screen"
           rel="stylesheet" />
   </head>
 
@@ -24,15 +25,41 @@
     <header>
       <nav class="navbar navbar-expand-lg bg-body fixed-top">
         <div class="container-fluid">
-          <!-- Navbar brand -->
           <a class="navbar-brand nav-link"
-             href="#">
+             href="/">
             <strong>Format Converter</strong>
           </a>
+          <button class="navbar-toggler"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse"
+               id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link active"
+                   href="./">
+                  Home
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link"
+                   href="./test/">
+                  Tests
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </nav>
     </header>
-    <main>
+    <main style="margin-top: 5rem;">
       <div class="container">
         <form id="data-translator">
           <div class="row text-center">
@@ -96,20 +123,20 @@
             </div>
           </div>
           <div class="row justify-content-center mb-5">
-            <div class="col-3 text-center">
+            <div class="col-12 col-md-3 text-center mb-2 mb-md-0">
               <button type="submit"
                       class="btn btn-primary">
                 Convert
               </button>
             </div>
-            <div class="col-3 text-center">
+            <div class="col-12 col-md-3 text-center mb-2 mb-md-0">
               <button type="button"
                       id="copy-button"
                       class="btn btn-primary">
                 Copy
               </button>
             </div>
-            <div class="col-3 text-center">
+            <div class="col-12 col-md-3 text-center mb-2 mb-md-0">
               <button type="reset"
                       class="btn btn-secondary">
                 Reset
@@ -177,7 +204,10 @@
             </div>
           </div>
           <div class="row">
-            <div class="form-outline mb-5" data-mdb-input-init id="output-holder">
+            <div class="form-outline mb-5"
+                 data-mdb-input-init
+                 id="output-holder"
+                 style="background-color: var(--mdb-form-control-disabled-bg);">
               <textarea class="form-control"
                         id="output"
                         rows="6"
@@ -192,6 +222,7 @@
     </main>
     <!-- MDB -->
     <script type="text/javascript"
+            async
             src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"></script>
     <script type="module"
             src="js/script.js"></script>

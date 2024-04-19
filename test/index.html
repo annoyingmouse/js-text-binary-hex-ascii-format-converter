@@ -4,8 +4,8 @@
   <head>
     <meta charset="utf-8">
     <title>Data-Translator: Tests</title>
-    <meta name="author" content="">
-    <meta name="description" content="">
+    <meta name="author" content="annoyingmouse">
+    <meta name="description" content="Tests for a utility that converts text between different formats (binary, hexadecimal and Ascii)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -18,8 +18,6 @@
           rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/gh/mochajs/mocha@2.2.5/mocha.css"
           rel="stylesheet" />
-    <link href="../../css/style.css"
-          rel="stylesheet" />
   </head>
 
   <body>
@@ -29,12 +27,31 @@
           <!-- Navbar brand -->
           <a class="navbar-brand nav-link"
              href="#">
-            <strong>Format Converter: Tests</strong>
+            <strong>Format Converter</strong>
           </a>
+          <button class="navbar-toggler"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="../">Home</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link active" href="./">Tests <span class="sr-only">(current)</span></a>
+              </li>
+            </ul>
+          </div>
         </div>
       </nav>
     </header>
-    <main>
+    <main style="margin-top: 5rem;">
       <div class="container">
         <div id="mocha"></div>
       </div>
