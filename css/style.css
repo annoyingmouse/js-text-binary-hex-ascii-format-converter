@@ -1,7 +1,0 @@
-main {
-  margin-top: 5rem;
-
-  #output-holder {
-    background-color: var(--mdb-form-control-disabled-bg);
-  }
-}
