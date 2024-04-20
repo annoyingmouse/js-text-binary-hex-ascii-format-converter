@@ -1,10 +1,13 @@
+/**
+ * Test Suite for functions.js
+ */
 import {
 	binaryToText,
 	hexToText,
-	asciiToText,
+	ASCIIToText,
 	textToBinary,
 	textToHex,
-	textToAscii,
+	textToASCII,
 	getTransitoryValue,
 	formatOutput,
 	getOutPutText,
@@ -13,7 +16,9 @@ import {
 const chai = window.chai;
 const expect = chai.expect;
 
-// Text to other data types
+/**
+ * Test Suite for textToBinary
+ */
 describe("textToBinary", () => {
 	it("Text translated to Binary", () => {
 		expect(textToBinary("Cheese")).to.deep.equal(
@@ -22,18 +27,27 @@ describe("textToBinary", () => {
 	});
 });
 
+/**
+ * Test Suite for textToHex
+ */
 describe("textToHex", () => {
 	it("Text translated to Hex", () => {
 		expect(textToHex("Cheese")).to.deep.equal("43 68 65 65 73 65");
 	});
 });
 
+/**
+ * Test Suite for textToAscii
+ */
 describe("textToAscii", () => {
 	it("Text translated to Ascii", () => {
-		expect(textToAscii("Cheese")).to.deep.equal("67 104 101 101 115 101");
+		expect(textToASCII("Cheese")).to.deep.equal("67 104 101 101 115 101");
 	});
 });
 
+/**
+ * Test Suite for binaryToText
+ */
 describe("binaryToText", () => {
 	it("Binary translated to Text", () => {
 		expect(
@@ -42,18 +56,27 @@ describe("binaryToText", () => {
 	});
 });
 
+/**
+ * Test Suite for hexToText
+ */
 describe("hexToText", () => {
 	it("Hex translated to Text", () => {
 		expect(hexToText("43 68 65 65 73 65")).to.deep.equal("Cheese");
 	});
 });
 
-describe("asciiToText", () => {
+/**
+ * Test Suite for ASCIIToText
+ */
+describe("ASCIIToText", () => {
 	it("Ascii translated to Text", () => {
-		expect(asciiToText("67 104 101 101 115 101")).to.deep.equal("Cheese");
+		expect(ASCIIToText("67 104 101 101 115 101")).to.deep.equal("Cheese");
 	});
 });
 
+/**
+ * Test Suite for getTransitoryValue
+ */
 describe("getTransitoryValue", () => {
 	it("Text to Text", () => {
 		expect(
@@ -86,12 +109,18 @@ describe("getTransitoryValue", () => {
 	});
 });
 
+/**
+ * Test Suite for formatOutput
+ */
 describe("formatOutput", () => {
 	it("Formats Text", () => {
 		expect(formatOutput("Text", "Cheese")).to.deep.equal("Text:\r\nCheese\r\n");
 	});
 });
 
+/**
+ * Test Suite for getOutPutText
+ */
 describe("getOutPutText", () => {
 	it("Formats Text as Binary", () => {
 		expect(
@@ -129,7 +158,7 @@ describe("getOutPutText", () => {
 				input: "01000011 01101000 01100101 01100101 01110011 01100101",
 				"output-type": ["ascii"],
 			}),
-		).to.deep.equal("Ascii:\r\n67 104 101 101 115 101\r\n");
+		).to.deep.equal("ASCII:\r\n67 104 101 101 115 101\r\n");
 	});
 	it("Formats Ascii as Text", () => {
 		expect(
