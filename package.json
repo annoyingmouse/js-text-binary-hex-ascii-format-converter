@@ -1,7 +1,12 @@
 {
 	"name": "js-text-binary-hex-ascii-format-converter",
 	"version": "1.0.0",
+	"type": "module",
+	"scripts": {
+		"test:unit": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js"
+	},
 	"devDependencies": {
-		"@biomejs/biome": "1.7.0"
+		"@biomejs/biome": "1.7.0",
+		"jest": "^29.7.0"
 	}
 }
